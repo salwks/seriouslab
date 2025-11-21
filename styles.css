@@ -44,19 +44,21 @@ header.scrolled {
 }
 
 nav {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
     align-items: center;
     gap: 1rem;
     height: var(--header-height);
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 1rem;
+    margin-left: auto;
 }
 
 header.scrolled nav {
@@ -622,6 +624,14 @@ footer {
 
     .mobile-menu-btn {
         display: block;
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+        flex: 1;
+        align-items: center;
+        text-align: center;
     }
 
     .nav-links {
@@ -654,6 +664,11 @@ footer {
 
     .lang-toggle {
         margin-left: 0;
+    }
+
+    .nav-actions {
+        order: 3;
+        width: auto;
     }
 
     section {
