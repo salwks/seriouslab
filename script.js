@@ -56,6 +56,7 @@ let heroCamera;
 let heroModel;
 const heroClock = new THREE.Clock();
 const staticCameraPosition = new THREE.Vector3();
+const heroLoading = document.getElementById('heroLoading');
 
 function initHeroScene() {
     if (!heroVisual) return;
@@ -90,11 +91,14 @@ function initHeroScene() {
 
 function loadHeroModel() {
     const textureLoader = new THREE.TextureLoader();
-    const diffuse = textureLoader.load('obj/textures/Rodin_Thinker_diffuse.jpg');
+    const onTextureLoad = () => hideHeroLoading();
+    const onTextureError = () => showHeroLoadingError();
+
+    const diffuse = textureLoader.load('obj/textures/Rodin_Thinker_diffuse.jpg', onTextureLoad, undefined, onTextureError);
     diffuse.colorSpace = THREE.SRGBColorSpace;
 
-    const normalMap = textureLoader.load('obj/textures/Rodin_Thinker_normal.png');
-    const glossMap = textureLoader.load('obj/textures/Rodin_Thinker_gloss.jpg');
+    const normalMap = textureLoader.load('obj/textures/Rodin_Thinker_normal.png', undefined, undefined, onTextureError);
+    const glossMap = textureLoader.load('obj/textures/Rodin_Thinker_gloss.jpg', undefined, undefined, onTextureError);
     glossMap.colorSpace = THREE.LinearSRGBColorSpace;
 
     const material = new THREE.MeshStandardMaterial({
@@ -133,10 +137,12 @@ function loadHeroModel() {
 
             heroModel = obj;
             heroScene.add(heroModel);
+            hideHeroLoading();
         },
         undefined,
         error => {
             console.error('Failed to load OBJ:', error);
+            showHeroLoadingError();
         }
     );
 }
@@ -162,6 +168,19 @@ function renderHero() {
     }
 
     heroRenderer.render(heroScene, heroCamera);
+}
+
+function hideHeroLoading() {
+    if (heroLoading) {
+        heroLoading.classList.add('hidden');
+    }
+}
+
+function showHeroLoadingError() {
+    if (heroLoading) {
+        heroLoading.textContent = 'Failed to initialize scene';
+        heroLoading.classList.remove('hidden');
+    }
 }
 
 window.addEventListener('resize', () => {
