@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serious Lab — Discomfort-Driven Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <div class="logo-title">Serious Lab</div>
+                <div class="logo-subtitle">Discomfort-Driven Studio</div>
+            </div>
+            <div class="nav-actions">
+                <button class="mobile-menu-btn" aria-label="메뉴 열기" id="mobileMenuBtn">
+                    ☰
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about" data-i18n="nav.about">소개</a></li>
+                    <li><a href="#philosophy" data-i18n="nav.philosophy">철학</a></li>
+                    <li><a href="#lab-notes" data-i18n="nav.labNotes">로그</a></li>
+                    <li><a href="#experiments" data-i18n="nav.experiments">실험</a></li>
+                    <li><a href="#studio" data-i18n="nav.studio">스튜디오</a></li>
+                </ul>
+                <button class="lang-toggle" id="langToggle" aria-label="언어 전환">KO</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div id="heroWebGL" class="hero-visual"></div>
+            <div class="hero-content fade-in-up">
+                <h1 data-i18n="hero.title">
+                    불편함을 그냥 넘기지 못하는<br>
+                    사람들의 <span class="highlight">실험실</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">We overthink what everyone else ignores.</p>
+                <p class="hero-description" data-i18n="hero.description">
+                    사람들이 "원래 이렇게 쓰는 거예요"라고 말하는 순간,<br>
+                    우리는 그 말이 불길하다고 생각합니다.<br>
+                    당연함으로 포장된 불편함을 의심하고, 굳이 실험하는 스튜디오입니다.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#philosophy" class="btn btn-primary" data-i18n="hero.ctaPrimary">철학 읽어보기</a>
+                    <a href="#lab-notes" class="btn btn-secondary" data-i18n="hero.ctaSecondary">실험 로그 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title" data-i18n="about.title">About Serious Lab</h2>
+            <p class="section-subtitle" data-i18n="about.subtitle">불편함을 직시하는, 약간 까다로운 스튜디오</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-i18n="about.p1">
+                        사람들은 반복되는 불편함에 놀랍도록 빨리 적응합니다. 
+                        로딩이 느려도, 버튼이 이상한 곳에 있어도, 설명이 불친절해도 "다들 이렇게 써요"라며 넘어갑니다.
+                    </p>
+                    <p data-i18n="about.p2">
+                        조직은 더 심각합니다. 이상한 프로세스를 "규정"이라 부르고, 비효율을 "관행"으로 포장합니다.
+                        그러다 보면 정작 제대로 된 경험은 아무도 책임지지 않습니다.
+                    </p>
+                    <p data-i18n="about.p3">
+                        Serious Lab은 그런 "이상하지만 누구도 안 건드리는 불편함"을 일부러 들춰냅니다.
+                        사실 우리도 귀찮지만, 누군가는 해야 하니까요.
+                    </p>
+                </div>
+                
+                <div class="about-keywords">
+                    <div class="keyword-item">
+                        <div class="keyword-title" data-i18n="about.keyword1.title">Everyday Friction</div>
+                        <div class="keyword-desc" data-i18n="about.keyword1.desc">사소하지만 계속 거슬리는 지점들. 모두가 참고 넘어가는 그 순간들.</div>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-title" data-i18n="about.keyword2.title">Broken Flows</div>
+                        <div class="keyword-desc" data-i18n="about.keyword2.desc">다들 참고 쓰는 망가진 UX 흐름. "원래 이래요"가 정답이 되는 곳.</div>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-title" data-i18n="about.keyword3.title">Unquestioned Rules</div>
+                        <div class="keyword-desc" data-i18n="about.keyword3.desc">아무도 안 물어보는 규칙들. 관성이 규정이 되고, 관행이 정답이 된 것들.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy">
+            <h2 class="section-title" data-i18n="philosophy.title">Philosophy</h2>
+            <p class="section-subtitle" data-i18n="philosophy.subtitle">Think Twice, Act Opposite</p>
+            
+            <p class="section-intro" data-i18n="philosophy.intro">
+                우리가 옳다고 믿는 직감이 얼마나 자주 틀리는지, 우리는 자주 확인합니다.
+                "직관적"이라는 말이 얼마나 주관적인지도 압니다.
+                그래서 우린 일부러 반대로 해봅니다. 최소한 그 반대편을 보고 나서 결정하기 위해서요.
+            </p>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="card-number">01</div>
+                    <h3 class="card-title" data-i18n="philosophy.card1.title">직감 점검</h3>
+                    <p class="card-description" data-i18n="philosophy.card1.desc">
+                        내가 편한 설계가, 정말로 사용자에게도 편한가요?
+                        디자이너의 멘탈 모델과 사용자의 멘탈 모델은 다릅니다.
+                        우리가 당연하다고 생각하는 흐름, 한 번 더 의심해봅니다.
+                    </p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="card-number">02</div>
+                    <h3 class="card-title" data-i18n="philosophy.card2.title">관성 해체</h3>
+                    <p class="card-description" data-i18n="philosophy.card2.desc">
+                        "지금까지 이렇게 해왔다"는 말은 생각보다 빈약한 근거입니다.
+                        성공의 이유가 그 방식 때문인지, 그냥 시장이 좋았던 건지 모릅니다.
+                        관성은 언제나 의심의 대상입니다.
+                    </p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="card-number">03</div>
+                    <h3 class="card-title" data-i18n="philosophy.card3.title">역방향 실험</h3>
+                    <p class="card-description" data-i18n="philosophy.card3.desc">
+                        플로우를 줄이는 대신 늘려보고, 문구를 포장하는 대신 솔직하게 적어봅니다.
+                        반대편 극단을 먼저 실험해야, 중간 어디쯤이 최선인지 보입니다.
+                        양 끝을 모르면 중간도 모릅니다.
+                    </p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="card-number">04</div>
+                    <h3 class="card-title" data-i18n="philosophy.card4.title">검증과 선택</h3>
+                    <p class="card-description" data-i18n="philosophy.card4.desc">
+                        감이 아니라 데이터와 실험 결과로 말합니다.
+                        필요하면 '원래 방식'도 버립니다. 
+                        설득력 있는 숫자 앞에서는, 관행도 규정도 의미 없습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lab-notes">
+            <h2 class="section-title" data-i18n="lab.title">Lab Notes</h2>
+            <p class="section-subtitle" data-i18n="lab.subtitle">우리가 집착하는 것들</p>
+            
+            <p class="section-intro" data-i18n="lab.intro">
+                결과물 자랑이 아니라, 과정과 삽질, 실패 로그까지 좋아합니다.
+                잘 포장된 포트폴리오는 많으니, 우리는 고민의 흔적을 남기겠습니다.
+                여기 적힌 건 진행 중이거나, 망했거나, 아직도 결론 못 낸 것들입니다.
+            </p>
+
+            <div class="notes-grid">
+                <div class="note-card">
+                    <span class="note-label" data-i18n="lab.note1.label">Note #01</span>
+                    <h3 class="note-title" data-i18n="lab.note1.title">사람들은 왜 가입 버튼 앞에서 멈출까</h3>
+                    <p class="note-description" data-i18n="lab.note1.desc">
+                        가입률이 낮다고 버튼 색을 바꾸고, 문구를 바꾸고, 인센티브를 붙입니다.
+                        정작 "가입이 필요한 이유"를 제대로 설명 안 한 채로요.
+                        우린 버튼 대신 가입 전 단계를 3배 늘려봤습니다.
+                    </p>
+                    <p class="note-status" data-i18n="lab.note1.status">아직도 실험 중입니다. 결과는 우리도 몰라요.</p>
+                </div>
+
+                <div class="note-card">
+                    <span class="note-label" data-i18n="lab.note2.label">Note #02</span>
+                    <h3 class="note-title" data-i18n="lab.note2.title">"직관적"이라는 단어를 쓰면 지는 겁니다</h3>
+                    <p class="note-description" data-i18n="lab.note2.desc">
+                        회의 때 가장 자주 나오는 말이 "이게 더 직관적이지 않나요?"입니다.
+                        하지만 직관은 사람마다 다릅니다. 
+                        우린 "직관적"이란 단어 대신, 구체적인 시나리오와 행동 패턴으로 말하기로 했습니다.
+                    </p>
+                    <p class="note-status" data-i18n="lab.note2.status">꽤 효과가 있었습니다. 회의가 2배 빨라졌어요.</p>
+                </div>
+
+                <div class="note-card">
+                    <span class="note-label" data-i18n="lab.note3.label">Note #03</span>
+                    <h3 class="note-title" data-i18n="lab.note3.title">설정 화면은 있는데, 아무도 안 들어옵니다</h3>
+                    <p class="note-description" data-i18n="lab.note3.desc">
+                        모든 앱에는 설정 화면이 있습니다. 하지만 사람들은 거의 안 들어갑니다.
+                        그럼에도 우린 설정 메뉴를 만들어야 한다고 배웠습니다.
+                        이번엔 설정을 아예 숨겨보기로 했습니다. 정말 필요할 때만 찾게요.
+                    </p>
+                    <p class="note-status" data-i18n="lab.note3.status">망했습니다. 사람들은 설정이 어디 있는지부터 물었어요.</p>
+                </div>
+
+                <div class="note-card">
+                    <span class="note-label" data-i18n="lab.note4.label">Note #04</span>
+                    <h3 class="note-title" data-i18n="lab.note4.title">안내 문구가 길수록 더 안 읽습니다</h3>
+                    <p class="note-description" data-i18n="lab.note4.desc">
+                        친절하게 설명하려다 보면 문장이 길어집니다.
+                        하지만 사람들은 긴 문장을 읽지 않습니다.
+                        우린 모든 안내를 한 문장, 최대 15단어로 제한했습니다.
+                    </p>
+                    <p class="note-status" data-i18n="lab.note4.status">놀랍게도 컴플레인이 줄었습니다. 짧으면 읽더라고요.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiments">
+            <h2 class="section-title" data-i18n="experiments.title">Experiments</h2>
+            <p class="section-subtitle" data-i18n="experiments.subtitle">문제, 가설, 실험</p>
+            
+            <p class="section-intro" data-i18n="experiments.intro">
+                우리는 '완성된 성공 스토리'보다, 문제–가설–실험–결과의 구조를 더 중요하게 봅니다.
+                어떻게 도착했는지 모르는 성공은 재현할 수 없으니까요.
+            </p>
+
+            <div class="experiments-grid">
+                <div class="experiment-card">
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.problem">Problem</div>
+                        <div class="experiment-content" data-i18n="experiments.exp1.problem">
+                            온보딩 튜토리얼을 95%가 건너뜁니다. 만들어놓고 보니 아무도 안 봅니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.hypothesis">Hypothesis</div>
+                        <div class="experiment-content" data-i18n="experiments.exp1.hypothesis">
+                            튜토리얼을 없애면, 사람들이 직접 부딪히면서 더 빨리 배울지도 모릅니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.experiment">Experiment</div>
+                        <div class="experiment-content" data-i18n="experiments.exp1.experiment">
+                            신규 유저를 두 그룹으로 나눴습니다. 
+                            A그룹은 기존 튜토리얼, B그룹은 튜토리얼 없이 맥락 기반 힌트만 제공했습니다.
+                            첫 주 리텐션과 핵심 기능 도달률을 측정했습니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.result">Result</div>
+                        <div class="experiment-content" data-i18n="experiments.exp1.result">
+                            B그룹의 첫 주 리텐션이 12% 높았습니다. 
+                            사람들은 튜토리얼보다 실제 상황에서 배우는 걸 선호했습니다. 
+                            지금은 튜토리얼을 없앴습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experiment-card">
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.problem">Problem</div>
+                        <div class="experiment-content" data-i18n="experiments.exp2.problem">
+                            "나중에 읽기" 기능의 사용률이 3%에 불과합니다. 저장은 하는데 다시 안 봅니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.hypothesis">Hypothesis</div>
+                        <div class="experiment-content" data-i18n="experiments.exp2.hypothesis">
+                            저장 목록이 쌓일수록 부담스러워서 안 보는 게 아닐까요? 
+                            24시간 뒤 자동 삭제되면 오히려 더 볼지도 모릅니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.experiment">Experiment</div>
+                        <div class="experiment-content" data-i18n="experiments.exp2.experiment">
+                            "나중에 읽기"를 "24시간 보관함"으로 바꿨습니다.
+                            저장하면 자동으로 24시간 뒤 사라진다고 명시했습니다.
+                            열람률과 저장 빈도를 4주간 추적했습니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.result">Result</div>
+                        <div class="experiment-content" data-i18n="experiments.exp2.result">
+                            열람률이 18%로 6배 증가했습니다. 기한이 있으니 사람들이 더 봤습니다.
+                            다만 "영구 저장하고 싶다"는 피드백도 많아서, 선택형으로 바꿀 예정입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experiment-card">
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.problem">Problem</div>
+                        <div class="experiment-content" data-i18n="experiments.exp3.problem">
+                            피드백 버튼을 만들어 놨지만, 한 달에 피드백이 3건도 안 들어옵니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.hypothesis">Hypothesis</div>
+                        <div class="experiment-content" data-i18n="experiments.exp3.hypothesis">
+                            "피드백"이라는 말이 너무 무겁지 않을까요? 
+                            "불편한 점 제보"로 바꾸면, 더 가볍게 말할 수 있을지도 모릅니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.experiment">Experiment</div>
+                        <div class="experiment-content" data-i18n="experiments.exp3.experiment">
+                            버튼 문구를 "피드백 남기기"에서 "불편한 점 제보하기"로 변경했습니다.
+                            추가로 "1분이면 충분합니다"라는 부연 설명을 넣었습니다.
+                        </div>
+                    </div>
+                    <div class="experiment-section">
+                        <div class="experiment-label" data-i18n="experiments.labels.result">Result</div>
+                        <div class="experiment-content" data-i18n="experiments.exp3.result">
+                            제보가 월 평균 47건으로 늘었습니다. 말의 무게가 다르면 행동도 달라집니다.
+                            지금은 "제보"라는 단어를 여러 곳에 적용 중입니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="studio">
+            <h2 class="section-title" data-i18n="studio.title">Studio</h2>
+            <p class="section-subtitle" data-i18n="studio.subtitle">우리는 이런 곳입니다</p>
+            
+            <p class="section-intro" data-i18n="studio.intro">
+                우리는 에이전시도, 스타트업도, 대행사도 아닙니다.
+                우리가 흥미를 느끼는 불편함만 골라서 실험하는 작은 스튜디오입니다.
+                클라이언트 미팅 대신 실험 로그를 쓰고, 제안서 대신 가설을 만듭니다.
+            </p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3 class="value-title" data-i18n="studio.value1.title">불편함 감지</h3>
+                    <div class="value-subtitle" data-i18n="studio.value1.subtitle">Discomfort First</div>
+                    <p class="value-description" data-i18n="studio.value1.desc">
+                        사람들이 "괜찮아요"라고 말하는 순간을 놓치지 않습니다.
+                        진짜 괜찮은지, 그냥 적응한 건지 구분합니다.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <h3 class="value-title" data-i18n="studio.value2.title">역발상 실행</h3>
+                    <div class="value-subtitle" data-i18n="studio.value2.subtitle">Contrarian Action</div>
+                    <p class="value-description" data-i18n="studio.value2.desc">
+                        직관의 반대를 일부러 실험합니다.
+                        당연해 보이는 선택이 항상 옳은 건 아니니까요.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <h3 class="value-title" data-i18n="studio.value3.title">집요한 검증</h3>
+                    <div class="value-subtitle" data-i18n="studio.value3.subtitle">Relentless Experimentation</div>
+                    <p class="value-description" data-i18n="studio.value3.desc">
+                        가설은 검증되기 전까지 그냥 추측입니다.
+                        우린 숫자와 실험 결과로만 말합니다.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <h3 class="value-title" data-i18n="studio.value4.title">사람 중심</h3>
+                    <div class="value-subtitle" data-i18n="studio.value4.subtitle">Human, Not User Blame</div>
+                    <p class="value-description" data-i18n="studio.value4.desc">
+                        "사용자가 이해를 못했다"가 아니라 "우리가 설명을 못했다"고 생각합니다.
+                        불편함은 사람 탓이 아닙니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="studio-notice" data-i18n="studio.notice">
+                클라이언트 의뢰는 받지 않습니다.<br>
+                대신, 세상 곳곳의 불편함 제보는 환영합니다.<br>
+                (진짜로 고쳐줄지는 모릅니다. 우리도 바쁘니까요.)
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright" data-i18n="footer.copyright">© 2025 Serious Lab. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" data-i18n="footer.link1">Instagram (연구 중)</a>
+                <a href="#" data-i18n="footer.link2">Newsletter (언젠가)</a>
+                <a href="#" data-i18n="footer.link3">GitHub (아마도)</a>
+                <a href="#" data-i18n="footer.link4">Lab Report (생각 중)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
