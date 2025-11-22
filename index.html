@@ -33,6 +33,7 @@
                     <li><a href="#lab-notes" data-i18n="nav.labNotes">로그</a></li>
                     <li><a href="#experiments" data-i18n="nav.experiments">실험</a></li>
                     <li><a href="#studio" data-i18n="nav.studio">스튜디오</a></li>
+                    <li><a href="#index-guard" class="nav-cta" data-i18n="nav.indexGuard">Index Guard</a></li>
                 </ul>
                 <button class="lang-toggle" id="langToggle" aria-label="언어 전환">KO</button>
             </div>
@@ -55,8 +56,65 @@
                     당연함으로 포장된 불편함을 의심하고, 굳이 실험하는 스튜디오입니다.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#philosophy" class="btn btn-primary" data-i18n="hero.ctaPrimary">철학 읽어보기</a>
-                    <a href="#lab-notes" class="btn btn-secondary" data-i18n="hero.ctaSecondary">실험 로그 보기</a>
+                <a href="#philosophy" class="btn btn-primary" data-i18n="hero.ctaPrimary">철학 읽어보기</a>
+                <a href="#lab-notes" class="btn btn-secondary" data-i18n="hero.ctaSecondary">실험 로그 보기</a>
+            </div>
+        </div>
+    </section>
+
+        <section id="index-guard" class="product-section">
+            <div class="product-header">
+                <div class="eyebrow" data-i18n="indexGuard.eyebrow">Fear & Greed 기반 투자 가드</div>
+                <h2 data-i18n="indexGuard.title">Index Guard — 흔들림 없는 투자 루틴</h2>
+                <p class="product-lead" data-i18n="indexGuard.lead">
+                    급등주 눌러담고 도파민에 취했다가 계좌가 식고, 단타로 번 돈을 단타로 두 배 잃고, 급락에 묶여 물타다 전재산이 희미해진 경험. 다들 한 번쯤 있습니다. Index Guard는 그 한순간을 심리 데이터로 끊어주는 iOS 앱입니다.
+                </p>
+                <div class="product-story">
+                    <div class="story-item" data-i18n="indexGuard.story1">① 알림 울림: 거래량 폭증, 뉴스 도배, 손가락이 먼저 움직일 때</div>
+                    <div class="story-item" data-i18n="indexGuard.story2">② 멈춤: F&G 지수와 이벤트 캘린더가 지금이 공포/탐욕 구간인지 먼저 보여줍니다</div>
+                    <div class="story-item" data-i18n="indexGuard.story3">③ 실행: Daily Guard 체크리스트와 내가 정한 규칙으로 매수/매도 전에 숨 고르기</div>
+                </div>
+                <div class="product-actions">
+                    <a href="#index-guard" class="btn btn-primary" data-i18n="indexGuard.ctaPrimary">무료로 시작하기</a>
+                    <a href="#index-guard-plans" class="btn btn-secondary" data-i18n="indexGuard.ctaSecondary">Pro 기능 보기</a>
+                </div>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3 data-i18n="indexGuard.card1.title">하루 1분 체크</h3>
+                    <p data-i18n="indexGuard.card1.desc">"지금 사면 2배" 속삭임은 60초 타이머와 체크리스트로 끊습니다.</p>
+                </div>
+                <div class="product-card">
+                    <h3 data-i18n="indexGuard.card2.title">실시간 심리 + 이벤트</h3>
+                    <p data-i18n="indexGuard.card2.desc">거래량 알림보다 먼저 F&G와 이벤트를 던져서, 손가락이 아니라 뇌가 먼저 움직이게.</p>
+                </div>
+                <div class="product-card">
+                    <h3 data-i18n="indexGuard.card3.title">월간 리포트</h3>
+                    <p data-i18n="indexGuard.card3.desc">연속 성공일·완료율 그래프가 "내 멘탈은 내려갔지만 루틴은 올랐다"를 숫자로 증명.</p>
+                </div>
+                <div class="product-card">
+                    <h3 data-i18n="indexGuard.card4.title">나만의 규칙</h3>
+                    <p data-i18n="indexGuard.card4.desc">"뉴스·거래량 폭발 시 24시간 대기" 같은 물타기 금지 규칙을 저장, Pro는 무제한/복원.</p>
+                </div>
+            </div>
+            <div class="product-layout">
+                <div class="layout-block">
+                    <h4 data-i18n="indexGuard.layout.title">원페이지 배치 가이드</h4>
+                    <ul>
+                        <li data-i18n="indexGuard.layout.item1">헤더 우측 CTA 2버튼(Primary/Outline) 스티키 유지.</li>
+                        <li data-i18n="indexGuard.layout.item2">히어로: 메시지+서브+앱 목업, CTA 반복 배치.</li>
+                        <li data-i18n="indexGuard.layout.item3">기능 3~4카드 → 신뢰(데이터 출처/로컬 저장) → 구독 플랜(Monthly/Yearly).</li>
+                        <li data-i18n="indexGuard.layout.item4">FAQ/문의 버튼을 푸터 바로 위에 배치해 유입 손실 최소화.</li>
+                    </ul>
+                </div>
+                <div class="layout-block" id="index-guard-plans">
+                    <h4 data-i18n="indexGuard.ui.title">톤 & UI</h4>
+                    <ul>
+                        <li data-i18n="indexGuard.ui.item1">딥 네이비/차콜 배경 + 라임 포인트, CTA는 그라데이션.</li>
+                        <li data-i18n="indexGuard.ui.item2">1200px 컨테이너, 섹션 패딩 100px, 12그리드 4-4-4 카드.</li>
+                        <li data-i18n="indexGuard.ui.item3">모바일: CTA 상단 고정, 카드 1열 스택, 여백 넉넉히.</li>
+                        <li data-i18n="indexGuard.ui.item4">숫자/지표는 모노스페이스, 아이콘은 라인 스타일로 대비.</li>
+                    </ul>
                 </div>
             </div>
         </section>
