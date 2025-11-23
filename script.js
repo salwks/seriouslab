@@ -331,7 +331,6 @@ const translations = {
         'studio.value4.title': `Life Impact`,
         'studio.value4.subtitle': `Life Impact`,
         'studio.value4.desc': `The goal is a less tiring life, not shinier UI. We watch the metrics that move.`,
-        'studio.notice': `No client gigs. We do welcome life-bug tips and experiment ideas.<br>(If we're intrigued, we jump in.)`,
         'footer.copyright': `© 2025 Serious Lab. All rights reserved.`,
         'footer.link1': `Instagram (research mode)`,
         'footer.link2': `Newsletter (someday)`,
