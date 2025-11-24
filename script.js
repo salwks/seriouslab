@@ -333,7 +333,7 @@ const translations = {
         'workPrinciples.value4.title': `Life & Work Impact`,
         'workPrinciples.value4.desc': `We look at whether workers are less tired, less confused, and less regretful—not whether the product got prettier. If time and risk don't decrease, we rework it no matter how good the feature looks.`,
         'footer.copyright': `© 2025 Serious Lab. All rights reserved.`,
-        'footer.info': `Serious Lab · Digital Product Team<br>Business Registration: 823-06-03800<br>Contact: master@serious-lab.com`,
+        'footer.info': `Serious Lab · Digital Product Team<br>Contact: master@serious-lab.com`,
         'footer.tagline': `Healthcare · Fintech · Decision Support & Work Products`
     }
 };
