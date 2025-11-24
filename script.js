@@ -1,17 +1,6 @@
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-window.addEventListener('load', () => {
-    if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
-    window.scrollTo(0, 0);
-});
-
 // Header scroll effect
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
