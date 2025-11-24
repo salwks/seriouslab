@@ -1,413 +1,676 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serious Lab — Experiments Over Assumptions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
         }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <header id="header">
-        <nav>
-            <div class="logo">
-                <div class="logo-title">Serious Lab</div>
-            </div>
-            <button class="mobile-menu-btn" aria-label="메뉴 열기" id="mobileMenuBtn">
-                ☰
-            </button>
-            <div class="nav-actions">
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#about" data-i18n="nav.about">소개</a></li>
-                    <li><a href="#philosophy" data-i18n="nav.philosophy">철학</a></li>
-                    <li><a href="#domains" data-i18n="nav.domains">도메인</a></li>
-                    <li><a href="#lab-notes" data-i18n="nav.labNotes">로그</a></li>
-                    <li><a href="#experiments" data-i18n="nav.experiments">실험</a></li>
-                    <li><a href="#index-guard" class="nav-cta" data-i18n="nav.indexGuard">Index Guard</a></li>
-                </ul>
-                <button class="lang-toggle" id="langToggle" aria-label="언어 전환">KO</button>
-            </div>
-        </nav>
+      <nav>
+        <div class="logo">
+          <div class="logo-title">Serious Lab</div>
+        </div>
+        <button
+          class="mobile-menu-btn"
+          aria-label="메뉴 열기"
+          id="mobileMenuBtn"
+        >
+          ☰
+        </button>
+        <div class="nav-actions">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#about" data-i18n="nav.about">소개</a></li>
+            <li><a href="#philosophy" data-i18n="nav.philosophy">철학</a></li>
+            <li><a href="#domains" data-i18n="nav.domains">도메인</a></li>
+            <li><a href="#lab-notes" data-i18n="nav.labNotes">로그</a></li>
+            <li><a href="#experiments" data-i18n="nav.experiments">실험</a></li>
+            <li>
+              <a href="#index-guard" class="nav-cta" data-i18n="nav.indexGuard"
+                >Index Guard</a
+              >
+            </li>
+          </ul>
+          <button class="lang-toggle" id="langToggle" aria-label="언어 전환">
+            KO
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <section class="hero" id="hero">
-            <div id="heroWebGL" class="hero-visual"></div>
-            <div class="hero-loading" id="heroLoading" aria-live="polite">Booting Serious Lab…</div>
-            <div class="hero-content fade-in-up">
-                <h1 data-i18n="hero.title">
-                    덜 피곤한 결정을 설계하는<br>
-                    디지털 프로덕트 조직
-                </h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">기술과 이론을 하나로, 덜 피곤한 하루를 만드는 방법을 실험합니다.</p>
-                <p class="hero-description" data-i18n="hero.description">
-                    Serious Lab은 헬스케어, 핀테크처럼 한 번의 선택이 길게 남는 영역에서 '일'과 '결정'을 다루는 작은 디지털 프로덕트 조직입니다.<br><br>
-                    우리가 먼저 보는 건 화면이 아니라 일과 생활의 흐름입니다. 이 일이 왜 이렇게까지 피곤해야 하는지, 어디까지가 필수이고 어디서부터가 관성인지 먼저 묻습니다.<br><br>
-                    그 질문을 가설로 만들고, UX·데이터·자동화·개발을 한 흐름으로 엮어 실험합니다. 느낌이 아니라 로그와 지표로 <strong>"이 일은 예전보다 덜 소모적인가?"</strong>라는 질문에 답하려고 합니다.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#philosophy" class="btn btn-primary" data-i18n="hero.ctaPrimary">철학 읽어보기</a>
-                    <a href="#lab-notes" class="btn btn-secondary" data-i18n="hero.ctaSecondary">실험 로그 보기</a>
-                </div>
-            </div>
-        </section>
+      <section class="hero" id="hero">
+        <div id="heroWebGL" class="hero-visual"></div>
+        <div class="hero-loading" id="heroLoading" aria-live="polite">
+          Booting Serious Lab…
+        </div>
+        <div class="hero-content fade-in-up">
+          <h1 data-i18n="hero.title">
+            더 나은 결정을 설계하는<br />
+            디지털 프로덕트 조직
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            기술과 이론을 하나로, 일과 생활을 개선하는 방법을 실험합니다.
+          </p>
+          <p class="hero-description" data-i18n="hero.description">
+            화면이 아니라 일과 생활의 흐름을 먼저 봅니다.<br />
+            불편한 부분을 찾아 가설을 세우고, 데이터로 검증하며 개선합니다.
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="#philosophy"
+              class="btn btn-primary"
+              data-i18n="hero.ctaPrimary"
+              >철학 읽어보기</a
+            >
+            <a
+              href="#lab-notes"
+              class="btn btn-secondary"
+              data-i18n="hero.ctaSecondary"
+              >실험 로그 보기</a
+            >
+          </div>
+        </div>
+      </section>
 
-        <section class="identity-block">
-            <p class="identity-text" data-i18n="identity.text">
-                Serious Lab은 일과 생활에 대한 가설을 세우고 검증하는 소규모 디지털 프로덕트 조직입니다.
+      <section class="identity-block">
+        <p class="identity-text" data-i18n="identity.text">
+          Serious Lab은 일과 생활에 대한 가설을 세우고 검증하는 소규모 디지털
+          프로덕트 조직입니다.
+        </p>
+      </section>
+
+      <section id="domains">
+        <h2 class="section-title" data-i18n="domains.title">
+          Domains — 우리가 오래 붙잡고 보는 영역
+        </h2>
+        <p class="section-subtitle" data-i18n="domains.subtitle">
+          규제와 리스크가 무거운 도메인일수록, 사람 입장에서는 "조금 더 편한
+          구조"가 더 절실하다고 생각합니다.
+        </p>
+
+        <div class="domains-grid">
+          <div class="domain-card">
+            <h3 class="domain-title" data-i18n="domains.healthcare.title">
+              헬스케어 · Medical Imaging
+            </h3>
+            <p class="domain-description" data-i18n="domains.healthcare.desc">
+              진단과 치료 과정에서 쓰이는 화면은 '예쁘다'보다 '안 헷갈린다'가
+              먼저입니다. DICOM 뷰어, 워크플로우 도구, 의료진·환자용
+              인터페이스에서 안전성·가독성·의사결정 지원을 기준으로 설계합니다.
             </p>
-        </section>
-
-        <section id="domains">
-            <h2 class="section-title" data-i18n="domains.title">Domains — 우리가 오래 붙잡고 보는 영역</h2>
-            <p class="section-subtitle" data-i18n="domains.subtitle">
-                규제와 리스크가 무거운 도메인일수록, 사람 입장에서는 "조금 덜 피곤한 구조"가 더 절실하다고 생각합니다.
+          </div>
+          <div class="domain-card">
+            <h3 class="domain-title" data-i18n="domains.fintech.title">
+              핀테크 · 투자 행동 / 개인 재무
+            </h3>
+            <p class="domain-description" data-i18n="domains.fintech.desc">
+              숫자는 냉정하지만, 결정은 감정적으로 이뤄집니다. 공포/탐욕 지표,
+              이벤트 캘린더, 루틴 기반 알림 등으로 "나중에 덜 후회하는 쪽"으로
+              행동을 틀어주는 도구를 만듭니다.
             </p>
-
-            <div class="domains-grid">
-                <div class="domain-card">
-                    <h3 class="domain-title" data-i18n="domains.healthcare.title">헬스케어 · Medical Imaging</h3>
-                    <p class="domain-description" data-i18n="domains.healthcare.desc">
-                        진단과 치료 과정에서 쓰이는 화면은 '예쁘다'보다 '안 헷갈린다'가 먼저입니다. DICOM 뷰어, 워크플로우 도구, 의료진·환자용 인터페이스에서 안전성·가독성·의사결정 지원을 기준으로 설계합니다.
-                    </p>
-                </div>
-                <div class="domain-card">
-                    <h3 class="domain-title" data-i18n="domains.fintech.title">핀테크 · 투자 행동 / 개인 재무</h3>
-                    <p class="domain-description" data-i18n="domains.fintech.desc">
-                        숫자는 냉정하지만, 결정은 감정적으로 이뤄집니다. 공포/탐욕 지표, 이벤트 캘린더, 루틴 기반 알림 등으로 "나중에 덜 후회하는 쪽"으로 행동을 틀어주는 도구를 만듭니다.
-                    </p>
-                </div>
-                <div class="domain-card">
-                    <h3 class="domain-title" data-i18n="domains.productivity.title">업무 생산성 · 운영 자동화</h3>
-                    <p class="domain-description" data-i18n="domains.productivity.desc">
-                        회의, 리포트, 반복 업무는 잘못 설계하면 사람을 갈아 넣게 됩니다. 언제 사람의 판단이 필요하고, 어디까지 자동화할 수 있는지 경계를 정리해 보고용 대시보드가 아니라 실제 행동이 바뀌는 도구를 목표로 합니다.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="index-guard" class="product-section">
-            <div class="product-header">
-                <div class="eyebrow" data-i18n="indexGuard.eyebrow">Case 01</div>
-                <h2 data-i18n="indexGuard.title">Index Guard</h2>
-                <p class="product-tagline" data-i18n="indexGuard.tagline">손가락보다 멘탈을 먼저 잡는 투자 루틴 앱</p>
-                <p class="product-lead" data-i18n="indexGuard.lead">
-                    Index Guard는 개인투자자의 "한 번만 더…"를 줄이기 위한 투자 행동 가드 앱입니다. Fear & Greed 지수, 주요 이벤트 캘린더, 나만의 규칙과 체크리스트를 묶어 기분 대신 루틴으로 매매 결정을 하도록 돕습니다.
-                </p>
-                <div class="product-story">
-                    <div class="story-item" data-i18n="indexGuard.story1">① 상황 감지: 거래량, 뉴스, 변동성 등 시장이 과열되는 신호를 감지합니다.</div>
-                    <div class="story-item" data-i18n="indexGuard.story2">② 맥락 제시: 현재 시장 심리(Fear & Greed)와 옵션 만기, 주요 지표 발표 등 "지금이 어떤 구간인지"를 한 번에 보여줍니다.</div>
-                    <div class="story-item" data-i18n="indexGuard.story3">③ 행동 가드: Daily Guard 체크리스트와 사용자가 박제해 둔 규칙으로 매수·매도 전에 최소 60초는 생각할 시간을 만듭니다.</div>
-                </div>
-            </div>
-            <div class="product-grid">
-                <div class="product-card">
-                    <h3 data-i18n="indexGuard.card1.title">하루 1분 Guard 체크</h3>
-                    <p data-i18n="indexGuard.card1.desc">시장 상태와 오늘 할 수 있는 행동을 1분 안에 정리합니다.</p>
-                </div>
-                <div class="product-card">
-                    <h3 data-i18n="indexGuard.card2.title">심리 + 이벤트 통합 보기</h3>
-                    <p data-i18n="indexGuard.card2.desc">F&G 지수, 경제 일정, 변동성 이벤트를 한 화면에서 보여 "뉴스만 보고 판단하는" 일을 줄입니다.</p>
-                </div>
-                <div class="product-card">
-                    <h3 data-i18n="indexGuard.card3.title">루틴·성공률 리포트</h3>
-                    <p data-i18n="indexGuard.card3.desc">연속 성공일·체크 완료율로 "계좌는 출렁여도, 멘탈은 유지되고 있는지"를 숫자로 확인합니다.</p>
-                </div>
-                <div class="product-card">
-                    <h3 data-i18n="indexGuard.card4.title">나만의 투자 규칙 저장</h3>
-                    <p data-i18n="indexGuard.card4.desc">"뉴스/거래량 폭발 시 24시간 대기" 같은 금지 룰을 저장하고 반복 적용합니다. Pro에서는 규칙을 여러 개 만들어, 과거의 나에게 덜 화낼 수 있게 합니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2 class="section-title" data-i18n="about.title">About Serious Lab</h2>
-            <p class="section-subtitle" data-i18n="about.subtitle">일과 생활의 흐름을 가설로 풀어보는 디지털 프로덕트 조직</p>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-i18n="about.p1">
-                        Serious Lab은 UX, 데이터, 자동화, 개발을 따로 보지 않습니다. 사람이 실제로 어떤 순서로 생각하고, 어떤 순서로 손을 움직이며, 어디에서 피로를 느끼는지부터 봅니다.
-                    </p>
-                    <p data-i18n="about.p2">
-                        "원래 다 이렇게 쓰는 시스템이에요"라는 말을 들으면, 그 순간부터 이 일이 누구에게, 어떤 방식으로 소모적인지 계측하기 시작합니다. 시간·에너지·오류·주의력 소모 지점을 로그로 남기고, 도메인에 맞는 지표로 정리합니다.
-                    </p>
-                    <p data-i18n="about.p3">
-                        그 다음에야 화면과 플로우를 바꿉니다. 무엇을 없애고, 무엇을 자동화하며, 어디에 사람의 판단과 브레이크를 남길지 정리합니다.
-                    </p>
-                    <p data-i18n="about.p4">
-                        Serious Lab이라는 이름은 '연구실'이라기보다, 일과 생활에 대한 가설을 놓치지 않고 끝까지 따라가 보자는 약속에 가깝습니다. 목표는 화려한 서비스가 아니라, 헬스케어·핀테크·운영 현장에서 <strong>"이제 이 일은 예전만큼 피곤하지 않다"</strong>라고 말할 수 있는 구조입니다.
-                    </p>
-                </div>
-
-                <div class="about-keywords">
-                    <div class="keyword-item">
-                        <div class="keyword-title" data-i18n="about.keyword1.title">일상 계측</div>
-                        <div class="keyword-desc" data-i18n="about.keyword1.desc">시간·에너지·주의력이 어디서 새는지부터 기록합니다. 직감이 아니라 로그로 봅니다.</div>
-                    </div>
-                    <div class="keyword-item">
-                        <div class="keyword-title" data-i18n="about.keyword2.title">도구는 보조 역할</div>
-                        <div class="keyword-desc" data-i18n="about.keyword2.desc">자동화와 모델은 일을 덜어주는 수단일 뿐, 책임과 기준을 대신하진 않습니다.</div>
-                    </div>
-                    <div class="keyword-item">
-                        <div class="keyword-title" data-i18n="about.keyword3.title">사람이 마지막 브레이크</div>
-                        <div class="keyword-desc" data-i18n="about.keyword3.desc">특히 고신뢰 도메인에서는, 최종 중단 버튼은 늘 사람이 쥐고 있어야 한다고 봅니다.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="philosophy">
-            <h2 class="section-title" data-i18n="philosophy.title">Philosophy</h2>
-            <p class="section-subtitle" data-i18n="philosophy.subtitle">일상, 가설, 증거</p>
-
-            <p class="section-intro" data-i18n="philosophy.intro">
-                "이 일을 꼭 이렇게 해야 하나?"라는 질문을 그냥 푸념으로 두지 않습니다. 일과 생활에 대한 가설을 세우고, 계측 → 실험 → 검증으로 답을 찾으려 합니다.
+          </div>
+          <div class="domain-card">
+            <h3 class="domain-title" data-i18n="domains.productivity.title">
+              업무 생산성 · 운영 자동화
+            </h3>
+            <p class="domain-description" data-i18n="domains.productivity.desc">
+              회의, 리포트, 반복 업무는 잘못 설계하면 사람을 갈아 넣게 됩니다.
+              언제 사람의 판단이 필요하고, 어디까지 자동화할 수 있는지 경계를
+              정리해 보고용 대시보드가 아니라 실제 행동이 바뀌는 도구를 목표로
+              합니다.
             </p>
+          </div>
+        </div>
+      </section>
 
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <div class="card-number">01</div>
-                    <h3 class="card-title" data-i18n="philosophy.card1.title">흐름부터 계측</h3>
-                    <p class="card-description" data-i18n="philosophy.card1.desc">
-                        하루의 피로는 느낌으로 기억되지만, 개선은 숫자로만 확인됩니다. 클릭 수, 대기 시간, 맥락 전환, 오류·되돌림 같은 일상의 단위부터 계측합니다.
-                    </p>
-                </div>
-
-                <div class="philosophy-card">
-                    <div class="card-number">02</div>
-                    <h3 class="card-title" data-i18n="philosophy.card2.title">도구는 수단</h3>
-                    <p class="card-description" data-i18n="philosophy.card2.desc">
-                        자동화와 모델, 프레임워크는 일을 덜 피곤하게 만드는 수단일 뿐입니다. 무엇을 자동화해도 되는지, 무엇은 사람이 직접 봐야 하는지는 도메인과 책임 구조에 맞춰 정합니다.
-                    </p>
-                </div>
-
-                <div class="philosophy-card">
-                    <div class="card-number">03</div>
-                    <h3 class="card-title" data-i18n="philosophy.card3.title">가설은 일상에 대해 세운다</h3>
-                    <p class="card-description" data-i18n="philosophy.card3.desc">
-                        "이 기능 멋있을까?"보다 "이렇게 바꾸면, 실제로 덜 피곤해질까?"를 먼저 묻습니다. 가설의 단위는 기능이 아니라 일하고 생활하는 방식입니다.
-                    </p>
-                </div>
-
-                <div class="philosophy-card">
-                    <div class="card-number">04</div>
-                    <h3 class="card-title" data-i18n="philosophy.card4.title">증거는 일상의 변화에서 찾는다</h3>
-                    <p class="card-description" data-i18n="philosophy.card4.desc">
-                        좋은 설계는 사람들을 덜 지치게 만들고, 실수 가능성을 줄입니다. 피로도, 처리 시간, 오류·되돌림 비율 같은 지표에서 일과 생활이 정말 덜 소모적으로 변했는지 확인합니다.
-                    </p>
-                </div>
+      <section id="index-guard" class="product-section">
+        <div class="product-header">
+          <div class="eyebrow" data-i18n="indexGuard.eyebrow">Case 01</div>
+          <h2 data-i18n="indexGuard.title">Index Guard</h2>
+          <p class="product-tagline" data-i18n="indexGuard.tagline">
+            손가락보다 멘탈을 먼저 잡는 투자 루틴 앱
+          </p>
+          <p class="product-lead" data-i18n="indexGuard.lead">
+            Index Guard는 개인투자자의 "한 번만 더…"를 줄이기 위한 투자 행동
+            가드 앱입니다. Fear & Greed 지수, 주요 이벤트 캘린더, 나만의 규칙과
+            체크리스트를 묶어 기분 대신 루틴으로 매매 결정을 하도록 돕습니다.
+          </p>
+          <div class="product-story">
+            <div class="story-item" data-i18n="indexGuard.story1">
+              ① 상황 감지: 거래량, 뉴스, 변동성 등 시장이 과열되는 신호를
+              감지합니다.
             </div>
-        </section>
-
-        <section id="lab-notes">
-            <h2 class="section-title" data-i18n="lab.title">Lab Notes</h2>
-            <p class="section-subtitle" data-i18n="lab.subtitle">결과만큼, 과정과 삽질도 기록합니다</p>
-
-            <p class="section-intro" data-i18n="lab.intro">
-                Serious Lab은 "완성본"만 남기지 않습니다. 문제를 어떻게 정의했고, 어떤 가설과 실험이 통했는지, 무엇이 잘 안 됐는지도 같이 기록합니다. 다음 도메인에서 같은 실수를 반복하지 않기 위해서입니다.
+            <div class="story-item" data-i18n="indexGuard.story2">
+              ② 맥락 제시: 현재 시장 심리(Fear & Greed)와 옵션 만기, 주요 지표
+              발표 등 "지금이 어떤 구간인지"를 한 번에 보여줍니다.
+            </div>
+            <div class="story-item" data-i18n="indexGuard.story3">
+              ③ 행동 가드: Daily Guard 체크리스트와 사용자가 박제해 둔 규칙으로
+              매수·매도 전에 최소 60초는 생각할 시간을 만듭니다.
+            </div>
+          </div>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <h3 data-i18n="indexGuard.card1.title">하루 1분 Guard 체크</h3>
+            <p data-i18n="indexGuard.card1.desc">
+              시장 상태와 오늘 할 수 있는 행동을 1분 안에 정리합니다.
             </p>
-
-            <div class="notes-grid">
-                <div class="note-card">
-                    <span class="note-label" data-i18n="lab.note1.label">Note #01</span>
-                    <h3 class="note-title" data-i18n="lab.note1.title">가계부가 내일을 반영하지 않는다</h3>
-                    <p class="note-description" data-i18n="lab.note1.desc">
-                        카드 내역을 정리해도 “미래의 나”는 여전히 안 보였습니다.
-                        지출을 ‘향후 영향’ 기준으로 다시 묶으니, 그제야 행동이 조금 바뀌었습니다.
-                    </p>
-                    <p class="note-status" data-i18n="lab.note1.status">다음 달 데이터 수집 중. 잔소리 강도는 30% 낮췄습니다.</p>
-                </div>
-
-                <div class="note-card">
-                    <span class="note-label" data-i18n="lab.note2.label">Note #02</span>
-                    <h3 class="note-title" data-i18n="lab.note2.title">회의록이 갈등을 지운다</h3>
-                    <p class="note-description" data-i18n="lab.note2.desc">
-                        자동 정리된 회의록은 갈등과 보류 안건들을 전부 매끄럽게 지워버립니다.
-                        '합의 안 된 항목'만 따로 추출해 슬랙에 던지니, 회의 시간이 덜 늘어졌습니다.
-                    </p>
-                    <p class="note-status" data-i18n="lab.note2.status">갈등 추출 정밀도 0.78. 어조는 아직 덜 인간적이라 손보는 중입니다.</p>
-                </div>
-
-                <div class="note-card">
-                    <span class="note-label" data-i18n="lab.note3.label">Note #03</span>
-                    <h3 class="note-title" data-i18n="lab.note3.title">루틴 추천이 체력보다 욕망이 앞섰다</h3>
-                    <p class="note-description" data-i18n="lab.note3.desc">
-                        데이터 없이 만든 아침 루틴은 사람을 로봇 취급했습니다.
-                        심박·수면 데이터를 붙이고 ‘가능한가’ 점수를 매기니 준수율이 조금은 사람답게 올랐습니다.
-                    </p>
-                    <p class="note-status" data-i18n="lab.note3.status">준수율 +19%. 점수 계산식은 아직 대충입니다.</p>
-                </div>
-
-                <div class="note-card">
-                    <span class="note-label" data-i18n="lab.note4.label">Note #04</span>
-                    <h3 class="note-title" data-i18n="lab.note4.title">알림을 줄였더니 데이터도 줄었다</h3>
-                    <p class="note-description" data-i18n="lab.note4.desc">
-                        꼭 필요한 알림만 보내자고 줄였더니, 사용자 로그도 같이 사라졌습니다.
-                        '왜 안 눌렀는지'를 묻는 짧은 설문을 붙여, 다시 데이터부터 모으는 중입니다.
-                    </p>
-                    <p class="note-status" data-i18n="lab.note4.status">응답률 14% → 31%. 행동 변화는 아직 지켜보는 중입니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experiments">
-            <h2 class="section-title" data-i18n="experiments.title">Experiments</h2>
-            <p class="section-subtitle" data-i18n="experiments.subtitle">Problem · Hypothesis · Experiment · Result</p>
-
-            <p class="section-intro" data-i18n="experiments.intro">
-                기능이나 제품이 나오기까지의 과정은 문제–가설–실험–결과 네 칸으로 요약될 수 있어야 한다고 봅니다. 이 중 하나라도 비어 있다면, 아직은 의견 단계에 가깝습니다.
+          </div>
+          <div class="product-card">
+            <h3 data-i18n="indexGuard.card2.title">심리 + 이벤트 통합 보기</h3>
+            <p data-i18n="indexGuard.card2.desc">
+              F&G 지수, 경제 일정, 변동성 이벤트를 한 화면에서 보여 "뉴스만 보고
+              판단하는" 일을 줄입니다.
             </p>
-
-            <div class="experiments-grid">
-                <div class="experiment-card">
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.problem">Problem</div>
-                        <div class="experiment-content" data-i18n="experiments.exp1.problem">
-                            자동 태깅이 고객 티켓을 엉뚱하게 묶어서, 37%가 재작업으로 돌아옵니다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.hypothesis">Hypothesis</div>
-                        <div class="experiment-content" data-i18n="experiments.exp1.hypothesis">
-                            제품 스키마와 FAQ를 검색해 근거를 붙이고, 모를 땐 모른다고 말하게 하면 헛발질이 줄어들 것이다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.experiment">Experiment</div>
-                        <div class="experiment-content" data-i18n="experiments.exp1.experiment">
-                            A: 기존 zero-shot 태깅.
-                            B: 제품 스키마 + FAQ 벡터 검색을 붙이고, 애매하면 태깅을 포기하도록 설정.
-                            두 그룹의 정확도, 재작업률, 처리 시간을 2주씩 비교했습니다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.result">Result</div>
-                        <div class="experiment-content" data-i18n="experiments.exp1.result">
-                            정확도 +19pt, 재작업률 37% → 11%, 처리 시간 +6초.
-                            속도는 조금 느려졌지만, 팀이 다시 시스템을 믿기 시작했습니다.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experiment-card">
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.problem">Problem</div>
-                        <div class="experiment-content" data-i18n="experiments.exp2.problem">
-                            개인화 루틴 추천 푸시는 72%가 무시합니다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.hypothesis">Hypothesis</div>
-                        <div class="experiment-content" data-i18n="experiments.exp2.hypothesis">
-                            웨어러블·캘린더 데이터로 시간/피로 비용을 같이 보여주면 덜 거부할 것이다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.experiment">Experiment</div>
-                        <div class="experiment-content" data-i18n="experiments.exp2.experiment">
-                            A: “지금 루틴 시작하세요” 단순 푸시.
-                            B: “15분, 예측 피로 -8%, 일정 충돌 없음”을 함께 전송.
-                            4주간 AB 테스트를 진행했습니다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.result">Result</div>
-                        <div class="experiment-content" data-i18n="experiments.exp2.result">
-                            시작율 2.4배, 중도 이탈 -22%.
-                            대신 데이터 연결 실패 케이스가 늘어, 리트라이 로직을 다시 설계 중입니다.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experiment-card">
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.problem">Problem</div>
-                        <div class="experiment-content" data-i18n="experiments.exp3.problem">
-                            대시보드를 아무도 안 봅니다. 월간 보고서도 옵션 취급입니다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.hypothesis">Hypothesis</div>
-                        <div class="experiment-content" data-i18n="experiments.exp3.hypothesis">
-                            숫자 나열 대신, 지난주 대비 변동·원인·다음 실험을 한 페이지로 슬랙에 던지면 읽을지도 모른다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.experiment">Experiment</div>
-                        <div class="experiment-content" data-i18n="experiments.exp3.experiment">
-                            매주 금요일, 주요 메트릭 diff를 자동 요약해 근거 링크와 함께 전송했습니다.
-                            열람률과 회의 시간을 6주간 관찰했습니다.
-                        </div>
-                    </div>
-                    <div class="experiment-section">
-                        <div class="experiment-label" data-i18n="experiments.labels.result">Result</div>
-                        <div class="experiment-content" data-i18n="experiments.exp3.result">
-                            열람률 3배, 주간 회의 18분 단축.
-                            해석 오류 2건이 생겨 ‘불확실도’ 섹션을 따로 추가했습니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="work-principles">
-            <h2 class="section-title" data-i18n="workPrinciples.title">Work Principles</h2>
-            <p class="section-subtitle" data-i18n="workPrinciples.subtitle">복잡한 제품을 만들 때 지키는 몇 가지 기준</p>
-
-            <p class="section-intro" data-i18n="workPrinciples.intro">
-                Serious Lab은 도메인과 상관없이 아래 네 가지 기준을 유지하려고 합니다.
+          </div>
+          <div class="product-card">
+            <h3 data-i18n="indexGuard.card3.title">루틴·성공률 리포트</h3>
+            <p data-i18n="indexGuard.card3.desc">
+              연속 성공일·체크 완료율로 "계좌는 출렁여도, 멘탈은 유지되고
+              있는지"를 숫자로 확인합니다.
             </p>
+          </div>
+          <div class="product-card">
+            <h3 data-i18n="indexGuard.card4.title">나만의 투자 규칙 저장</h3>
+            <p data-i18n="indexGuard.card4.desc">
+              "뉴스/거래량 폭발 시 24시간 대기" 같은 금지 룰을 저장하고 반복
+              적용합니다. Pro에서는 규칙을 여러 개 만들어, 과거의 나에게 덜 화낼
+              수 있게 합니다.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div class="values-grid">
-                <div class="value-card">
-                    <h3 class="value-title" data-i18n="workPrinciples.value1.title">Instrument Everything</h3>
-                    <p class="value-description" data-i18n="workPrinciples.value1.desc">
-                        사소해 보이는 흐름도 이벤트로 남깁니다. 측정되지 않으면 개선도, 책임도 모호해집니다.
-                    </p>
-                </div>
+      <section id="about">
+        <h2 class="section-title" data-i18n="about.title">About Serious Lab</h2>
+        <p class="section-subtitle" data-i18n="about.subtitle">
+          일과 생활의 흐름을 가설로 풀어보는 디지털 프로덕트 조직
+        </p>
 
-                <div class="value-card">
-                    <h3 class="value-title" data-i18n="workPrinciples.value2.title">Model, Not Boss</h3>
-                    <p class="value-description" data-i18n="workPrinciples.value2.desc">
-                        모델은 제안하고 정리하는 역할입니다. 특히 민감한 도메인에서는 사람이 이해·설명할 수 있는 수준까지만 전면에 세웁니다.
-                    </p>
-                </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p data-i18n="about.p1">
+              Serious Lab은 UX, 데이터, 자동화, 개발을 따로 보지 않습니다.
+              사람이 실제로 어떤 순서로 생각하고, 어떤 순서로 손을 움직이며,
+              어디에서 불편함을 느끼는지부터 봅니다.
+            </p>
+            <p data-i18n="about.p2">
+              "원래 다 이렇게 쓰는 시스템이에요"라는 말을 들으면, 그 순간부터 이
+              일이 누구에게, 어떤 방식으로 소모적인지 계측하기 시작합니다.
+              시간·에너지·오류·주의력 소모 지점을 로그로 남기고, 도메인에 맞는
+              지표로 정리합니다.
+            </p>
+            <p data-i18n="about.p3">
+              그 다음에야 화면과 플로우를 바꿉니다. 무엇을 없애고, 무엇을
+              자동화하며, 어디에 사람의 판단과 브레이크를 남길지 정리합니다.
+            </p>
+            <p data-i18n="about.p4">
+              Serious Lab이라는 이름은 '연구실'이라기보다, 일과 생활에 대한
+              가설을 놓치지 않고 끝까지 따라가 보자는 약속에 가깝습니다. 목표는
+              화려한 서비스가 아니라, 헬스케어·핀테크·운영 현장에서
+              <strong>"이제 이 일은 예전보다 덜 불편하다"</strong>라고 말할 수
+              있는 구조입니다.
+            </p>
+          </div>
 
-                <div class="value-card">
-                    <h3 class="value-title" data-i18n="workPrinciples.value3.title">Hypothesis to Log</h3>
-                    <p class="value-description" data-i18n="workPrinciples.value3.desc">
-                        "이 일을 이렇게 줄이면 좋겠다"라는 말은 가설일 뿐입니다. 가설은 실험 설계와 로그로 남기고, 결과에 따라 인정하거나 폐기합니다. 실패한 실험도 다음 설계를 위한 데이터라고 보고 아카이브합니다.
-                    </p>
-                </div>
-
-                <div class="value-card">
-                    <h3 class="value-title" data-i18n="workPrinciples.value4.title">Life & Work Impact</h3>
-                    <p class="value-description" data-i18n="workPrinciples.value4.desc">
-                        제품이 예뻐졌는지가 아니라, 일하는 사람이 덜 지치고, 덜 헷갈리고, 덜 후회하는지를 봅니다. 피로도·시간·리스크가 줄어들지 않으면, 기능이 아무리 좋아 보여도 다시 손댑니다.
-                    </p>
-                </div>
+          <div class="about-keywords">
+            <div class="keyword-item">
+              <div class="keyword-title" data-i18n="about.keyword1.title">
+                일상 계측
+              </div>
+              <div class="keyword-desc" data-i18n="about.keyword1.desc">
+                시간·에너지·주의력이 어디서 새는지부터 기록합니다. 직감이 아니라
+                로그로 봅니다.
+              </div>
             </div>
-        </section>
+            <div class="keyword-item">
+              <div class="keyword-title" data-i18n="about.keyword2.title">
+                도구는 보조 역할
+              </div>
+              <div class="keyword-desc" data-i18n="about.keyword2.desc">
+                자동화와 모델은 일을 덜어주는 수단일 뿐, 책임과 기준을 대신하진
+                않습니다.
+              </div>
+            </div>
+            <div class="keyword-item">
+              <div class="keyword-title" data-i18n="about.keyword3.title">
+                사람이 마지막 브레이크
+              </div>
+              <div class="keyword-desc" data-i18n="about.keyword3.desc">
+                특히 고신뢰 도메인에서는, 최종 중단 버튼은 늘 사람이 쥐고 있어야
+                한다고 봅니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="philosophy">
+        <h2 class="section-title" data-i18n="philosophy.title">Philosophy</h2>
+        <p class="section-subtitle" data-i18n="philosophy.subtitle">
+          일상, 가설, 증거
+        </p>
+
+        <p class="section-intro" data-i18n="philosophy.intro">
+          "이 일을 꼭 이렇게 해야 하나?"라는 질문을 그냥 푸념으로 두지 않습니다.
+          일과 생활에 대한 가설을 세우고, 계측 → 실험 → 검증으로 답을 찾으려
+          합니다.
+        </p>
+
+        <div class="philosophy-grid">
+          <div class="philosophy-card">
+            <div class="card-number">01</div>
+            <h3 class="card-title" data-i18n="philosophy.card1.title">
+              흐름부터 계측
+            </h3>
+            <p class="card-description" data-i18n="philosophy.card1.desc">
+              하루의 불편함은 느낌으로 기억되지만, 개선은 숫자로만 확인됩니다.
+              클릭 수, 대기 시간, 맥락 전환, 오류·되돌림 같은 일상의 단위부터
+              계측합니다.
+            </p>
+          </div>
+
+          <div class="philosophy-card">
+            <div class="card-number">02</div>
+            <h3 class="card-title" data-i18n="philosophy.card2.title">
+              도구는 수단
+            </h3>
+            <p class="card-description" data-i18n="philosophy.card2.desc">
+              자동화와 모델, 프레임워크는 일상을 덜 불편하게 만드는 수단일
+              뿐입니다. 무엇을 자동화해도 되는지, 무엇은 사람이 직접 봐야
+              하는지는 도메인과 책임 구조에 맞춰 정합니다.
+            </p>
+          </div>
+
+          <div class="philosophy-card">
+            <div class="card-number">03</div>
+            <h3 class="card-title" data-i18n="philosophy.card3.title">
+              가설은 일상에 대해 세운다
+            </h3>
+            <p class="card-description" data-i18n="philosophy.card3.desc">
+              "이 기능 멋있을까?"보다 "이 일을 이렇게 바꾸면, 실제로 덜
+              불편해질까?"를 먼저 묻습니다. 가설의 단위는 기능이 아니라 일하는
+              방식입니다.
+            </p>
+          </div>
+
+          <div class="philosophy-card">
+            <div class="card-number">04</div>
+            <h3 class="card-title" data-i18n="philosophy.card4.title">
+              증거는 일상의 변화에서 찾는다
+            </h3>
+            <p class="card-description" data-i18n="philosophy.card4.desc">
+              좋은 설계는 사람들을 덜 지치게 만들고, 실수 가능성을 줄입니다.
+              소요 시간, 오류·되돌림 비율 같은 지표에서 일상이 정말 덜
+              소모적으로 변했는지 확인합니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="lab-notes">
+        <h2 class="section-title" data-i18n="lab.title">Lab Notes</h2>
+        <p class="section-subtitle" data-i18n="lab.subtitle">
+          결과만큼, 과정과 삽질도 기록합니다
+        </p>
+
+        <p class="section-intro" data-i18n="lab.intro">
+          Serious Lab은 "완성본"만 남기지 않습니다. 문제를 어떻게 정의했고, 어떤
+          가설과 실험이 통했는지, 무엇이 잘 안 됐는지도 같이 기록합니다. 다음
+          도메인에서 같은 실수를 반복하지 않기 위해서입니다.
+        </p>
+
+        <div class="notes-grid">
+          <div class="note-card">
+            <span class="note-label" data-i18n="lab.note1.label">Note #01</span>
+            <h3 class="note-title" data-i18n="lab.note1.title">
+              가계부가 내일을 반영하지 않는다
+            </h3>
+            <p class="note-description" data-i18n="lab.note1.desc">
+              카드 내역을 정리해도 “미래의 나”는 여전히 안 보였습니다. 지출을
+              ‘향후 영향’ 기준으로 다시 묶으니, 그제야 행동이 조금 바뀌었습니다.
+            </p>
+            <p class="note-status" data-i18n="lab.note1.status">
+              다음 달 데이터 수집 중. 잔소리 강도는 30% 낮췄습니다.
+            </p>
+          </div>
+
+          <div class="note-card">
+            <span class="note-label" data-i18n="lab.note2.label">Note #02</span>
+            <h3 class="note-title" data-i18n="lab.note2.title">
+              회의록이 갈등을 지운다
+            </h3>
+            <p class="note-description" data-i18n="lab.note2.desc">
+              자동 정리된 회의록은 갈등과 보류 안건들을 전부 매끄럽게
+              지워버립니다. '합의 안 된 항목'만 따로 추출해 슬랙에 던지니, 회의
+              시간이 덜 늘어졌습니다.
+            </p>
+            <p class="note-status" data-i18n="lab.note2.status">
+              갈등 추출 정밀도 0.78. 어조는 아직 덜 인간적이라 손보는 중입니다.
+            </p>
+          </div>
+
+          <div class="note-card">
+            <span class="note-label" data-i18n="lab.note3.label">Note #03</span>
+            <h3 class="note-title" data-i18n="lab.note3.title">
+              루틴 추천이 체력보다 욕망이 앞섰다
+            </h3>
+            <p class="note-description" data-i18n="lab.note3.desc">
+              데이터 없이 만든 아침 루틴은 사람을 로봇 취급했습니다. 심박·수면
+              데이터를 붙이고 ‘가능한가’ 점수를 매기니 준수율이 조금은 사람답게
+              올랐습니다.
+            </p>
+            <p class="note-status" data-i18n="lab.note3.status">
+              준수율 +19%. 점수 계산식은 아직 대충입니다.
+            </p>
+          </div>
+
+          <div class="note-card">
+            <span class="note-label" data-i18n="lab.note4.label">Note #04</span>
+            <h3 class="note-title" data-i18n="lab.note4.title">
+              알림을 줄였더니 데이터도 줄었다
+            </h3>
+            <p class="note-description" data-i18n="lab.note4.desc">
+              꼭 필요한 알림만 보내자고 줄였더니, 사용자 로그도 같이
+              사라졌습니다. '왜 안 눌렀는지'를 묻는 짧은 설문을 붙여, 다시
+              데이터부터 모으는 중입니다.
+            </p>
+            <p class="note-status" data-i18n="lab.note4.status">
+              응답률 14% → 31%. 행동 변화는 아직 지켜보는 중입니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiments">
+        <h2 class="section-title" data-i18n="experiments.title">Experiments</h2>
+        <p class="section-subtitle" data-i18n="experiments.subtitle">
+          Problem · Hypothesis · Experiment · Result
+        </p>
+
+        <p class="section-intro" data-i18n="experiments.intro">
+          기능이나 제품이 나오기까지의 과정은 문제–가설–실험–결과 네 칸으로
+          요약될 수 있어야 한다고 봅니다. 이 중 하나라도 비어 있다면, 아직은
+          의견 단계에 가깝습니다.
+        </p>
+
+        <div class="experiments-grid">
+          <div class="experiment-card">
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.problem"
+              >
+                Problem
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp1.problem"
+              >
+                자동 태깅이 고객 티켓을 엉뚱하게 묶어서, 37%가 재작업으로
+                돌아옵니다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.hypothesis"
+              >
+                Hypothesis
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp1.hypothesis"
+              >
+                제품 스키마와 FAQ를 검색해 근거를 붙이고, 모를 땐 모른다고
+                말하게 하면 헛발질이 줄어들 것이다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.experiment"
+              >
+                Experiment
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp1.experiment"
+              >
+                A: 기존 zero-shot 태깅. B: 제품 스키마 + FAQ 벡터 검색을 붙이고,
+                애매하면 태깅을 포기하도록 설정. 두 그룹의 정확도, 재작업률,
+                처리 시간을 2주씩 비교했습니다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.result"
+              >
+                Result
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp1.result"
+              >
+                정확도 +19pt, 재작업률 37% → 11%, 처리 시간 +6초. 속도는 조금
+                느려졌지만, 팀이 다시 시스템을 믿기 시작했습니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="experiment-card">
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.problem"
+              >
+                Problem
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp2.problem"
+              >
+                개인화 루틴 추천 푸시는 72%가 무시합니다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.hypothesis"
+              >
+                Hypothesis
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp2.hypothesis"
+              >
+                웨어러블·캘린더 데이터로 소요 시간과 부담을 같이 보여주면 덜
+                거부할 것이다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.experiment"
+              >
+                Experiment
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp2.experiment"
+              >
+                A: "지금 루틴 시작하세요" 단순 푸시. B: "15분 소요, 일정 충돌
+                없음"을 함께 전송. 4주간 AB 테스트를 진행했습니다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.result"
+              >
+                Result
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp2.result"
+              >
+                시작율 2.4배, 중도 이탈 -22%. 대신 데이터 연결 실패 케이스가
+                늘어, 리트라이 로직을 다시 설계 중입니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="experiment-card">
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.problem"
+              >
+                Problem
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp3.problem"
+              >
+                대시보드를 아무도 안 봅니다. 월간 보고서도 옵션 취급입니다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.hypothesis"
+              >
+                Hypothesis
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp3.hypothesis"
+              >
+                숫자 나열 대신, 지난주 대비 변동·원인·다음 실험을 한 페이지로
+                슬랙에 던지면 읽을지도 모른다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.experiment"
+              >
+                Experiment
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp3.experiment"
+              >
+                매주 금요일, 주요 메트릭 diff를 자동 요약해 근거 링크와 함께
+                전송했습니다. 열람률과 회의 시간을 6주간 관찰했습니다.
+              </div>
+            </div>
+            <div class="experiment-section">
+              <div
+                class="experiment-label"
+                data-i18n="experiments.labels.result"
+              >
+                Result
+              </div>
+              <div
+                class="experiment-content"
+                data-i18n="experiments.exp3.result"
+              >
+                열람률 3배, 주간 회의 18분 단축. 해석 오류 2건이 생겨 ‘불확실도’
+                섹션을 따로 추가했습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work-principles">
+        <h2 class="section-title" data-i18n="workPrinciples.title">
+          Work Principles
+        </h2>
+        <p class="section-subtitle" data-i18n="workPrinciples.subtitle">
+          복잡한 제품을 만들 때 지키는 몇 가지 기준
+        </p>
+
+        <p class="section-intro" data-i18n="workPrinciples.intro">
+          Serious Lab은 도메인과 상관없이 아래 네 가지 기준을 유지하려고 합니다.
+        </p>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <h3 class="value-title" data-i18n="workPrinciples.value1.title">
+              Instrument Everything
+            </h3>
+            <p class="value-description" data-i18n="workPrinciples.value1.desc">
+              사소해 보이는 흐름도 이벤트로 남깁니다. 측정되지 않으면 개선도,
+              책임도 모호해집니다.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title" data-i18n="workPrinciples.value2.title">
+              Model, Not Boss
+            </h3>
+            <p class="value-description" data-i18n="workPrinciples.value2.desc">
+              모델은 제안하고 정리하는 역할입니다. 특히 민감한 도메인에서는
+              사람이 이해·설명할 수 있는 수준까지만 전면에 세웁니다.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title" data-i18n="workPrinciples.value3.title">
+              Hypothesis to Log
+            </h3>
+            <p class="value-description" data-i18n="workPrinciples.value3.desc">
+              "이 일을 이렇게 줄이면 좋겠다"라는 말은 가설일 뿐입니다. 가설은
+              실험 설계와 로그로 남기고, 결과에 따라 인정하거나 폐기합니다.
+              실패한 실험도 다음 설계를 위한 데이터라고 보고 아카이브합니다.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title" data-i18n="workPrinciples.value4.title">
+              Life & Work Impact
+            </h3>
+            <p class="value-description" data-i18n="workPrinciples.value4.desc">
+              제품이 예뻐졌는지가 아니라, 일하는 사람이 덜 지치고, 덜 헷갈리고,
+              덜 후회하는지를 봅니다. 소요 시간과 리스크가 줄어들지 않으면,
+              기능이 아무리 좋아 보여도 다시 손댑니다.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p class="copyright" data-i18n="footer.copyright">© 2025 Serious Lab. All rights reserved.</p>
-            <p class="footer-tagline" data-i18n="footer.tagline">Healthcare · Fintech · Decision Support & Work Products</p>
-        </div>
+      <div class="footer-content">
+        <p class="copyright" data-i18n="footer.copyright">
+          © 2025 Serious Lab. All rights reserved.
+        </p>
+        <p class="footer-tagline" data-i18n="footer.tagline">
+          Healthcare · Fintech · Decision Support & Work Products
+        </p>
+      </div>
     </footer>
 
     <script type="module" src="script.js"></script>
-</body>
+  </body>
 </html>
