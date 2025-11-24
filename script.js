@@ -225,6 +225,7 @@ const translations = {
         'nav.labNotes': `Lab Notes`,
         'nav.experiments': `Experiments`,
         'nav.indexGuard': `Index Guard`,
+        'nav.clarityViewer': `Clarity Viewer`,
         'hero.title': `A digital product team<br>designing better decisions`,
         'hero.subtitle': `We blend tech and theory to experiment with ways to improve work and life.`,
         'hero.description': `We look at the flow of work and life first, not screens.<br>We find friction, form hypotheses, and improve through data validation.`,
