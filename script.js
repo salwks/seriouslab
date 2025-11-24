@@ -230,7 +230,7 @@ const translations = {
         'hero.description': `We look at the flow of work and life first, not screens.<br>We find friction, form hypotheses, and improve through data validation.`,
         'hero.ctaPrimary': `Read Our Philosophy`,
         'hero.ctaSecondary': `Browse the Lab Notes`,
-        'identity.text': `Serious Lab is a small digital product team that forms and tests hypotheses about work and life.`,
+        'identity.text': `Serious Lab is a digital product team that forms and tests hypotheses about work and life.`,
         'domains.title': `Domains — Areas we study deeply`,
         'domains.subtitle': `The heavier the regulation and risk, the more people need "a slightly more comfortable structure."`,
         'domains.healthcare.title': `Healthcare · Medical Imaging`,
