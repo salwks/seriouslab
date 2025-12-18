@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.lang-img').forEach(img => {
             const baseName = img.getAttribute('data-img');
             if (baseName) {
-                img.src = `assets/images/${baseName}_${lang}.png`;
+                const suffix = lang === 'ko' ? 'kr' : lang;
+                img.src = `assets/images/${baseName}_${suffix}.png`;
             }
         });
     }
